@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Construtor da classe Bar
         barList.add(new Bar("Bar do Juka", "", "Venham se divertir com seus amigos!", "Rua das Palmeiras", 1));
-        barList.add(new Bar("Bar do Leao", "", "Venham se divertir com seus amigos!", "Rua das Palmeiras", 2));
-        barList.add(new Bar("Bar Teste", "", "Venham se divertir com seus amigos!", "Rua das Palmeiras", 3));
-        barList.add(new Bar("Bar da Ambev", "", "Venham se divertir com seus amigos!", "Rua das Palmeiras", 4));
-        barList.add(new Bar("Bar do Leo", "", "Venham se divertir com seus amigos!", "Rua das Palmeiras", 5));
+        barList.add(new Bar("Bar do Leao", "", "O melhor pokerstop", "Rua Amazonas", 2));
+        barList.add(new Bar("Bar Teste", "", "Venham que aqui é tudo mais barato", "Rua 5 de maio", 3));
+        barList.add(new Bar("Bar da Ambev", "", "Só os mais fortes que ficam até o final", "Rua Bahia", 4));
+        barList.add(new Bar("Bar do Leo", "", "...", "Rua Benjamin Constante", 5));
+        barList.add(new Bar("Bar Mutante","","Biiiirr","Rua dos Mutantes",4));
 
         // Construtor da classe Adapter
         BarAdapter barAdapter = new BarAdapter(this, barList);
