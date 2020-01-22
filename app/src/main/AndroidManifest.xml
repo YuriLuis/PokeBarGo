@@ -21,12 +21,11 @@
             android:resource="@xml/providers" />
 
         <activity android:name=".activity.TeladeUsuario"
-            tools:ignore="DuplicateActivity">
-        <activity android:name=".view.MainActivity">
+            tools:ignore="DuplicateActivity"></activity>
 
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
