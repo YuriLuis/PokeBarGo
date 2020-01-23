@@ -36,8 +36,6 @@
 
         <activity android:name=".SmsActivity"></activity>
 
-        <activity android:name=".activity.MainActivity"></activity>
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
