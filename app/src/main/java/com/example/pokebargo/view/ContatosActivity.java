@@ -1,7 +1,9 @@
-package com.example.pokebargo.activity;
+package com.example.pokebargo.view;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -14,6 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokebargo.R;
+import com.example.pokebargo.model.Contato;
+import com.example.pokebargo.model.Usuario;
+import com.example.pokebargo.controler.ContatosAdapter;
 
 import java.util.ArrayList;
 
@@ -22,8 +27,9 @@ public class ContatosActivity extends AppCompatActivity implements
 
     private RecyclerView recyclerViewListaContatos;
     private ContatosAdapter contatosAdapter;
-    private ArrayList<Usuario> listaContatos = new ArrayList<Usuario>();
+    private ArrayList<Contato> listaContatos = new ArrayList<Contato>();
     private Usuario usuario;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,8 @@ public class ContatosActivity extends AppCompatActivity implements
         recyclerViewListaContatos.setLayoutManager( layoutManager );
         recyclerViewListaContatos.setHasFixedSize( true );
         recyclerViewListaContatos.setAdapter( contatosAdapter );
+
+
     }
 
     @Override
@@ -63,5 +71,8 @@ public class ContatosActivity extends AppCompatActivity implements
     public void onLoaderReset(@NonNull Loader<Cursor> loader) {
 
     }
+
+
+
 }
 

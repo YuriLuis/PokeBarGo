@@ -1,4 +1,4 @@
-package com.example.pokebargo.activity;
+package com.example.pokebargo.model;
 
 public class Usuario {
 

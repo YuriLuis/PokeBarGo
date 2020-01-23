@@ -25,27 +25,12 @@
         <TextView
             android:id="@+id/tvNome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Nome"
             android:textColor="@android:color/background_dark"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="Email"
-            android:textColor="@android:color/background_dark"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:id="@+id/tvTelefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:textColor="@android:color/background_dark"
-            android:textStyle="bold" />
     </LinearLayout>
 
 
