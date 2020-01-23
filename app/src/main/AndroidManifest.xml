@@ -27,6 +27,7 @@
         <activity android:name=".view.TeladeUsuario"
             tools:ignore="DuplicateActivity"></activity>
 
+        <activity android:name=".view.BarDetalheActivity"></activity>
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

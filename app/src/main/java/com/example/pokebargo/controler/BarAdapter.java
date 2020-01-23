@@ -1,6 +1,7 @@
 package com.example.pokebargo.controler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokebargo.R;
 import com.example.pokebargo.model.Bar;
+import com.example.pokebargo.model.Produto;
+import com.example.pokebargo.view.BarDetalheActivity;
 
 import java.util.List;
 
 public class BarAdapter extends RecyclerView.Adapter<BarAdapter.MyViewHolder> {
 
     private static List<Bar> listaBar;
+    private static List<Produto> listaProdutos;
     private Context context;
 
     // Construtor da classe BarAdapter
@@ -42,14 +46,19 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.MyViewHolder> {
         // Utiliza o holder para pegar as informações do model Bar
         holder.tv_nome.setText("   " + listaBar.get(position).getNome());
         holder.tv_endereco.setText("   " + listaBar.get(position).getEndereco());
-        holder.tv_descricao.setText("   " + listaBar.get(position).getDescricao());
+        holder.tv_descricao.setText("  " + listaBar.get(position).getDescricao());
         holder.rb_classificacao.setRating(listaBar.get(position).getClassificacao());
+        holder.iv_img_bar.setImageResource(listaBar.get(position).getUrl_img());
         holder.cv_item_bar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(context, DetalhesProdutoActivity.class);
-                intent.putExtra("NomeProduto", listaProdutosFiltrado.get(position).getNomeProduto());
-                context.startActivity(intent);*/
+                Intent intent = new Intent(context, BarDetalheActivity.class);
+                intent.putExtra("NomeBar", listaBar.get(position).getNome());
+                intent.putExtra("EnderecoBar", listaBar.get(position).getEndereco());
+                intent.putExtra("DescricaoBar", listaBar.get(position).getDescricao());
+                intent.putExtra("ClassificaoBar", listaBar.get(position).getClassificacao());
+                intent.putExtra("ImagemBar", listaBar.get(position).getUrl_img());
+                context.startActivity(intent);
             }
         });
     }
