@@ -1,4 +1,4 @@
-package com.example.pokebargo.activity;
+package com.example.pokebargo.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
