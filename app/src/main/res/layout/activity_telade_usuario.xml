@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+
+    <EditText
+        android:id="@+id/etNome"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="368dp"
+        android:background="@drawable/border_corner"
+        android:ems="10"
+        android:hint="    Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="444dp"
+        android:background="@drawable/border_corner"
+        android:ems="10"
+        android:hint="    Email"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etTel"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="37dp"
+        android:background="@drawable/border_corner"
+        android:clickable="false"
+        android:duplicateParentState="false"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="     telefone"
+        android:inputType="phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+    <Button
+        android:id="@+id/btn_carregarCamera"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginBottom="68dp"
+        android:background="@android:color/background_dark"
+        android:text="Camera"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/etNome"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_carregarImagem"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:layout_marginBottom="68dp"
+        android:background="@android:color/background_dark"
+        android:text="Galeria"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/etNome"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_Entrar"
+        android:layout_width="158dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginBottom="48dp"
+        android:background="@android:color/background_dark"
+        android:text="Entrar"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="162dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/background_dark" />
+</androidx.constraintlayout.widget.ConstraintLayout>
