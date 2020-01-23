@@ -1,13 +1,20 @@
 package com.example.pokebargo.view;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokebargo.R;
 import com.example.pokebargo.controler.BarAdapter;
+import com.example.pokebargo.controler.SmsFlash;
 import com.example.pokebargo.model.Bar;
 
 import java.util.ArrayList;
@@ -41,6 +48,5 @@ public class MainActivity extends AppCompatActivity {
 
         // Seta o BarAdapter no recycle view
         rcv_listaBares.setAdapter(barAdapter);
-
     }
 }
