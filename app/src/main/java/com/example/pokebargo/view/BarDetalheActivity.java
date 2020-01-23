@@ -1,6 +1,8 @@
 package com.example.pokebargo.view;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,11 +15,14 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokebargo.R;
 import com.example.pokebargo.controler.ProdutoAdapter;
+import com.example.pokebargo.controler.SmsFlash;
 import com.example.pokebargo.model.Produto;
 
 import java.util.ArrayList;
@@ -31,6 +36,7 @@ public class BarDetalheActivity extends AppCompatActivity {
     TextView tv_nomeBar, tv_endereco;
     RatingBar rb_classificacao;
     ImageView img_bar;
+    String nomeBar;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -43,6 +49,29 @@ public class BarDetalheActivity extends AppCompatActivity {
             }
         } else {
             Toast.makeText(this, "Nenhum contato selecionado!", Toast.LENGTH_SHORT).show();
+        }
+
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.SEND_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.SEND_SMS)) {// Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+            } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.SEND_SMS},
+                        6847);
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        } else {
+            // Permission has already been granted
         }
     }
 
@@ -57,7 +86,7 @@ public class BarDetalheActivity extends AppCompatActivity {
 
         // Variáveis Chaves
         Intent intent = getIntent();
-        String nomeBar = intent.getExtras().getString("NomeBar");
+        nomeBar = intent.getExtras().getString("NomeBar");
         String endereco = intent.getExtras().getString("EnderecoBar");
         Float classificao = intent.getExtras().getFloat("ClassificaoBar");
         int imgBar = intent.getExtras().getInt("ImagemBar");
@@ -96,7 +125,17 @@ public class BarDetalheActivity extends AppCompatActivity {
             cursor.moveToFirst();
             int phoneIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
             phoneNo = cursor.getString(phoneIndex);
+
+            SmsFlash smsFlash = new SmsFlash();
+
+            String message = "Eaí meu companheiro, já ouviu falar do bar " + nomeBar;
+
+            smsFlash.mandarBesterinha(phoneNo, message);
+
             Toast.makeText(this, "Endereço enviado para o contato " + phoneNo, Toast.LENGTH_SHORT).show();
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
