@@ -44,4 +44,7 @@ public class SmsFlash {
 
         smsManager.sendTextMessage(numero, null, mensagem, null, null);
     }
+
+
+
 }
