@@ -1,11 +1,5 @@
 package com.example.pokebargo.view;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -25,12 +19,24 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
 import com.example.pokebargo.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.File;
 
 public class TeladeUsuario extends AppCompatActivity {
 
+    private static final int REQUEST_CAMERA_PERMISSION = 2000;
+    private static final int GALERIA_IMAGENS = 111;
+    private final int CAPTURAR_IMAGEM = 222;
+    private final int PERMISSAO_REQUEST = 2;
+    FirebaseAuth mAuth;
     private Button btn_carregarImagem, btn_carregarCamera, btn_Entrar;
     private AlertDialog alerta2;
     private EditText etNome, etEmail, etTel;
@@ -38,11 +44,6 @@ public class TeladeUsuario extends AppCompatActivity {
     private String nomeImagem;
     private Uri uri;
     private Activity thisActivity;
-
-    private static final int REQUEST_CAMERA_PERMISSION = 2000;
-    private static final int GALERIA_IMAGENS = 111;
-    private final int CAPTURAR_IMAGEM = 222;
-    private final int PERMISSAO_REQUEST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class TeladeUsuario extends AppCompatActivity {
         etNome = findViewById(R.id.etNome);
         etEmail = findViewById(R.id.etEmail);
         etTel = findViewById(R.id.etTel);
-
+        mAuth = FirebaseAuth.getInstance();
 
         btn_carregarCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,8 +201,19 @@ public class TeladeUsuario extends AppCompatActivity {
     public void limpaCampos() {
         etNome.setText("");
         etEmail.setText("");
-       etTel.setText("");
-
-
+        etTel.setText("");
     }
+
+    public void deslogarClick(View view) {
+        mAuth.signOut();
+        startActivity(new Intent(TeladeUsuario.this, LoginActivity.class));
+        finish();
+    }
+
+    public void voltarClick(View view) {
+        startActivity(new Intent(TeladeUsuario.this, MainActivity.class));
+        finish();
+    }
+
+
 }

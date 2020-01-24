@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".view.AutenticadorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#333333"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/btn_voltar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginBottom="23dp"
+                android:onClick="voltarClick"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_arrow_back_black_24dp" />
+
+            <com.shuhart.stepview.StepView
+                android:id="@+id/step_view"
+                android:layout_width="209dp"
+                android:layout_height="37dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:sv_animationType="All"
+                app:sv_stepPadding="12dp"
+                app:sv_steps="@array/steps"
+                app:sv_typeface="@font/iran_sans_mobile" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_enviarCodigoSMS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/ivSubtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="Autenticação"
+                    android:textAlignment="center"
+                    android:textColor="#B2B5C2"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="126dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="TODO"
+                    android:foregroundGravity="center"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/logo" />
+
+                <LinearLayout
+                    android:id="@+id/ll_celular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_enviarCodigoSMS"
+                    app:layout_constraintTop_toBottomOf="@+id/ivSubtitle2"
+                    app:layout_constraintVertical_bias="0.45"
+                    tools:layout_editor_absoluteX="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="35dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:scaleType="centerCrop"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/ic_phone_black_24dp"
+                        tools:layout_editor_absoluteY="605dp" />
+
+                    <EditText
+                        android:id="@+id/et_numCelular"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/border_search_box"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:hint="+55 47 99170-0855"
+                        android:inputType="textPhonetic"
+                        android:selectAllOnFocus="false"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#676768"
+                        android:textColorLink="#FFFFFF"
+                        android:textSize="16dp"
+                        tools:layout_editor_absoluteX="60dp"
+                        tools:layout_editor_absoluteY="595dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="Toque em Avançar para verificar sua conta com seu número de telefone."
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_enviarCodigoSMS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_celular"
+                    app:layout_constraintVertical_bias="0.80" />
+
+                <Button
+                    android:id="@+id/btn_enviarCodigoSMS"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/border_full_ok"
+                    android:drawableEnd="@drawable/ic_arrow_forward_ok_24dp"
+                    android:onClick="enviarCodigoSMS"
+                    android:text="Avançar"
+                    android:textColor="#96FF87"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_autenticarCodigoSMS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivLogo1"
+                    android:layout_width="126dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="109dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="109dp"
+                    android:contentDescription="TODO"
+                    android:foregroundGravity="center"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/logo" />
+
+                <TextView
+                    android:id="@+id/ivSubtitle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="Validação"
+                    android:textAlignment="center"
+                    android:textColor="#B2B5C2"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivLogo1" />
+
+                <Button
+                    android:id="@+id/btn_autenticarCodigoSMS"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/border_full_ok"
+                    android:drawableEnd="@drawable/ic_check_black_24dp"
+                    android:onClick="autenticarCodigoSMS"
+                    android:text="Validar"
+                    android:textColor="#96FF87"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Não recebeu o código?"
+                    android:textAlignment="center"
+                    android:textColor="#B2B5C2"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pinView" />
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="Ao continuar você concordará com nossos termos de política de privacidade e termos de uso."
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_autenticarCodigoSMS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <com.chaos.view.PinView
+                    android:id="@+id/pinView"
+                    style="@style/PinWidget.PinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:cursorColor="@color/colorAccent"
+                    app:cursorWidth="2dp"
+                    app:itemCount="6"
+                    app:itemHeight="48dp"
+                    app:itemRadius="4dp"
+                    app:itemSpacing="5dp"
+                    app:itemWidth="36dp"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_autenticarCodigoSMS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivLogo1"
+                    app:layout_constraintVertical_bias="0.40"
+                    app:lineColor="#8CB0FF"
+                    app:lineWidth="2dp"
+                    app:viewType="rectangle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_criarPerfilUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#333333"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btn_criarPerfilUsuario"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/border_full_ok"
+                    android:drawableEnd="@drawable/ic_arrow_forward_ok_24dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center|center_vertical"
+                    android:onClick="criarPerfilUsuario"
+                    android:text="Acessar"
+                    android:textColor="#96FF87"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/gifImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:background="@drawable/gunball_happy"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_criarPerfilUsuario"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.50" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Uhuulll... seu número foi verificado, clique em Continuar para criar seu perfil"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_criarPerfilUsuario"
+                    app:layout_constraintTop_toBottomOf="@+id/gifImageView"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:layout_editor_absoluteX="10dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

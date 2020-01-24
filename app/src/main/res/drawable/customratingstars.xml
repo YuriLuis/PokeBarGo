@@ -2,11 +2,11 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@android:id/background"
-        android:drawable="@drawable/empty" />
+        android:drawable="@drawable/empty2" />
     <item
         android:id="@android:id/secondaryProgress"
-        android:drawable="@drawable/empty" />
+        android:drawable="@drawable/empty2" />
     <item
         android:id="@android:id/progress"
-        android:drawable="@drawable/filled" />
+        android:drawable="@drawable/filled2" />
 </layer-list>
