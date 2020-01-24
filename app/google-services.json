@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "612234423264",
+    "firebase_url": "https://pokebargo1.firebaseio.com",
+    "project_id": "pokebargo1",
+    "storage_bucket": "pokebargo1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612234423264:android:6b99274d8ed8f34a6c5985",
+        "android_client_info": {
+          "package_name": "com.example.pokebargo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612234423264-mt4nrh62s8n2l1l1edn713bjgq9q7p5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokebargo",
+            "certificate_hash": "0f347972ba8d72b2ca21dfc9b272049b71a388cc"
+          }
+        },
+        {
+          "client_id": "612234423264-gucg99m6vce1nijdhush5l2vnp3kbed0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokebargo",
+            "certificate_hash": "8d53f5b12fb5f14222dff69e6dfac4a8015a57d5"
+          }
+        },
+        {
+          "client_id": "612234423264-kjg2een8em60clt85lnlmnf2f7rd6g93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4GFC0eV1mFzD1DpwWw9eSlTChinHTdu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612234423264-kjg2een8em60clt85lnlmnf2f7rd6g93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
