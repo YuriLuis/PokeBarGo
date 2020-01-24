@@ -4,44 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#333333"
     tools:context=".view.TeladeUsuario">
 
 
     <EditText
         android:id="@+id/etNome"
-        android:layout_width="251dp"
+        android:layout_width="0dp"
         android:layout_height="37dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/border_corner"
         android:ems="10"
         android:hint="    Name"
         android:inputType="textPersonName"
+        android:textColor="#B2B5C2"
+        android:textColorHint="#B2B5C2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="251dp"
+        android:layout_width="0dp"
         android:layout_height="37dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="444dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/border_corner"
         android:ems="10"
         android:hint="    Email"
         android:inputType="textPersonName"
+        android:textColor="#B2B5C2"
+        android:textColorHint="#B2B5C2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
     <EditText
         android:id="@+id/etTel"
-        android:layout_width="251dp"
+        android:layout_width="0dp"
         android:layout_height="37dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/border_corner"
         android:clickable="false"
         android:duplicateParentState="false"
@@ -49,57 +56,59 @@
         android:enabled="false"
         android:hint="     telefone"
         android:inputType="phone"
+        android:textColor="#B2B5C2"
+        android:textColorHint="#B2B5C2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <Button
         android:id="@+id/btn_carregarCamera"
-        android:layout_width="118dp"
+        android:layout_width="wrap_content"
         android:layout_height="47dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginBottom="68dp"
-        android:background="@android:color/background_dark"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/boder_botao"
         android:text="Camera"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/etNome"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="#B2B5C2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btn_carregarImagem"
-        android:layout_width="118dp"
+        android:layout_width="wrap_content"
         android:layout_height="47dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
-        android:layout_marginBottom="68dp"
-        android:background="@android:color/background_dark"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/boder_botao"
         android:text="Galeria"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/etNome"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="#B2B5C2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btn_Entrar"
         android:layout_width="158dp"
         android:layout_height="65dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="48dp"
-        android:background="@android:color/background_dark"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/boder_botao"
         android:text="Entrar"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="#B2B5C2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTel" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="162dp"
         android:layout_height="130dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/background_dark" />
+        app:srcCompat="@drawable/border_image" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -108,11 +117,9 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:onClick="voltarClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:src="@drawable/ic_arrow_back_black_24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_arrow_back_black_24dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -120,11 +127,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:contentDescription="TODO"
         android:onClick="deslogarClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/ic_exit_to_app_black_24dp"
-        android:contentDescription="TODO" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
