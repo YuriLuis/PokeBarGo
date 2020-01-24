@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=B4:0F:CD:97:3D:85:85:5C:D4:82:F9:2E:69:28:37:E4:07:4B:67:8A%3Bcom.example.pokebargo.view
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    B4:0F:CD:97:3D:85:85:5C:D4:82:F9:2E:69:28:37:E4:07:4B:67:8A
+
+    SHA-1 certificate fingerprint:
+    B4:0F:CD:97:3D:85:85:5C:D4:82:F9:2E:69:28:37:E4:07:4B:67:8A
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCwmMbn5-NJEZVK-kqjdlJiGYsGJo5Q35A</string>
+</resources>
