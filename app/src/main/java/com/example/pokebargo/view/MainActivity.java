@@ -1,6 +1,8 @@
 package com.example.pokebargo.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -22,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        carregaListaBares();
+    }
+
+    public void carregaListaBares() {
         BarAdapter barAdapter;
 
         barList = new ArrayList<>();
@@ -44,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
         // Seta o BarAdapter no recycle view
         rcv_listaBares.setAdapter(barAdapter);
 
-        // Pegando o clique do Usuário no recycler view
+    }
 
+    public void abriPerfil(View view) {
+        startActivity(new Intent(MainActivity.this, TeladeUsuario.class));
+        finish();
     }
 }
