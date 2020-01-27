@@ -1,5 +1,6 @@
 package com.example.pokebargo.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -26,6 +27,7 @@ import java.util.List;
 public class BarDetalheActivity extends AppCompatActivity {
 
     private static final int RESULT_PICK_CONTACT = 1;
+    private Context mContext;
     RecyclerView rcv_listaProduto;
     List<Produto> produtosList;
     TextView tv_nomeBar, tv_endereco;
@@ -55,6 +57,8 @@ public class BarDetalheActivity extends AppCompatActivity {
         produtosList = new ArrayList<>();
         rcv_listaProduto = findViewById(R.id.rcv_listaProdutos);
 
+        mContext = this;
+
         // Variáveis Chaves
         Intent intent = getIntent();
         String nomeBar = intent.getExtras().getString("NomeBar");
@@ -71,6 +75,14 @@ public class BarDetalheActivity extends AppCompatActivity {
         tv_endereco.setText("   " + endereco);
         rb_classificacao.setRating(classificao);
         img_bar.setImageResource(imgBar);
+
+        img_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         produtosList.add(new Produto("Fusion", 5.50, 0));
         produtosList.add(new Produto("Original", 1.50, 0));
