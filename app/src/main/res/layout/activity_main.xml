@@ -77,8 +77,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_listaBares"
-        android:layout_width="419dp"
-        android:layout_height="573dp"
+        android:layout_width="420dp"
+        android:layout_height="669dp"
         android:background="#333333"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
