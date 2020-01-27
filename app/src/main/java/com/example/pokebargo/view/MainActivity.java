@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
         rcv_listaBares = findViewById(R.id.rcv_listaBares);
 
         // Construtor da classe Bar
-        barList.add(new Bar("Bar do Juka", R.drawable.ic_launcher_background, "Venham se divertir com seus amigos!", "Rua das Palmeiras", 1));
-        barList.add(new Bar("Bar do Leao", R.drawable.ic_launcher_background, "O melhor pokerstop", "Rua Amazonas", 2));
-        barList.add(new Bar("Bar Teste", R.drawable.ic_launcher_background, "Venham que aqui é tudo mais barato", "Rua 5 de maio", 3));
-        barList.add(new Bar("Bar da Ambev", R.drawable.ic_launcher_background, "Só os mais fortes que ficam até o final", "Rua Bahia", 4));
-        barList.add(new Bar("Bar do Leo", R.drawable.ic_launcher_background, "...", "Rua Benjamin Constante", 5));
-        barList.add(new Bar("Bar Mutante", R.drawable.ic_launcher_background, "Biiiirr", "Rua dos Mutantes", 4));
+        barList.add(new Bar("Moitilas Bar", R.mipmap.motilas, "Cardápio variado com diversas opções de hambúrg...", "R. Santa Quitéria, 107", 1));
+        barList.add(new Bar("Factory Coffee Bar", R.mipmap.factory, "Cafés gourmets, sanduíches e cervejas artesanai...", "Av. Pres. Castelo Branco, 671", 2));
+        barList.add(new Bar("The Basement English Pub", R.mipmap.basement, "Pratos variados e cervejas artesanais, além de....", "R. Paul Hering, 35", 3));
+        barList.add(new Bar("Bar Restaurante Adriana", R.mipmap.adriana, "Só os mais fortes que ficam até o final.", "R. Curt Hering, 240", 4));
+        barList.add(new Bar("Tunga Choperia", R.mipmap.tunga, "Ponto de encontro com mesinhas ao ar livre e mú...", "R. Quinze de Novembro, 1020", 5));
+        barList.add(new Bar("Obs Bar e Restaurante", R.mipmap.obs, "Casa noturna com shows variados de sertanejo, p...", "R. Antônio da Veiga, 136", 4));
 
         // Construtor da classe Adapter
         barAdapter = new BarAdapter(this, barList);
