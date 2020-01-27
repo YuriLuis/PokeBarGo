@@ -1,5 +1,11 @@
 package com.example.pokebargo.view;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -19,56 +25,40 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-
 import com.example.pokebargo.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
-import java.util.HashMap;
 
-public class TeladeUsuario extends AppCompatActivity {
+public class Cadastro_Bar extends AppCompatActivity {
 
     private static final int REQUEST_CAMERA_PERMISSION = 2000;
     private static final int GALERIA_IMAGENS = 111;
     private final int CAPTURAR_IMAGEM = 222;
     private final int PERMISSAO_REQUEST = 2;
     FirebaseAuth mAuth;
-    FirebaseAuth autenticador;
-    DatabaseReference referencia;
-    PhoneAuthCredential credential;
-    private Button btn_carregarImagem, btn_carregarCamera, btn_Entrar;
+    private Button btn_carregarImagemCadastro, btn_carregarCameraCadastro, btn_Cadastrar;
     private AlertDialog alerta2;
-    private EditText etNome, etEmail, etTel;
-    private ImageView img_Produto;
+    private EditText etCadastroNome, etcadastroEndereco, etcadastroDescricao;
+    private ImageView imageViewCadastro;
     private String nomeImagem;
     private Uri uri;
     private Activity thisActivity;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_telade_usuario);
-        btn_carregarImagem = findViewById(R.id.btn_carregarImagem);
-        btn_carregarCamera = findViewById(R.id.btn_carregarCamera);
-        btn_Entrar = findViewById(R.id.btn_Entrar);
-        etNome = findViewById(R.id.etNome);
-        etEmail = findViewById(R.id.etEmail);
-        etTel = findViewById(R.id.etTel);
+        setContentView(R.layout.activity_cadastro__bar);
+        btn_carregarImagemCadastro = findViewById(R.id.btn_carregarImagemCadastro);
+        btn_carregarCameraCadastro = findViewById(R.id.btn_carregarCameraCadastro);
+        btn_Cadastrar = findViewById(R.id.btn_Cadastrar);
+        etCadastroNome = findViewById(R.id.etCadastroNome);
+        etcadastroEndereco = findViewById(R.id.etcadastroEndereco);
+        etcadastroDescricao = findViewById(R.id.etcadastroDescricao);
         mAuth = FirebaseAuth.getInstance();
 
-        btn_carregarCamera.setOnClickListener(new View.OnClickListener() {
+        btn_carregarCameraCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -86,14 +76,14 @@ public class TeladeUsuario extends AppCompatActivity {
                 }
             }
         });
-        btn_Entrar.setOnClickListener(new View.OnClickListener() {
+        btn_Cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if ((String.valueOf(etNome.getText()).length() > 0)
-                        && (String.valueOf(etEmail.getText()).length() > 0)
-                        && (String.valueOf(etTel.getText()).length() > 0)) {
-                    btn_Entrar.setActivated(true);
+                if ((String.valueOf(etCadastroNome.getText()).length() > 0)
+                        && (String.valueOf(etcadastroEndereco.getText()).length() > 0)
+                        && (String.valueOf(etcadastroDescricao.getText()).length() > 0)) {
+                    btn_Cadastrar.setActivated(true);
                     //cadastrarProduto();
                     alert();
                 } else {
@@ -128,8 +118,8 @@ public class TeladeUsuario extends AppCompatActivity {
             }
         }
 
-        img_Produto = findViewById(R.id.imageViewFoto);
-        Button galeria = findViewById(R.id.btn_carregarImagem);
+        imageViewCadastro = findViewById(R.id.imageViewCadastro);
+        Button galeria = findViewById(R.id.btn_carregarImagemCadastro);
         galeria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,16 +144,16 @@ public class TeladeUsuario extends AppCompatActivity {
                 c.close();
                 Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
                 thumbnail = rotationBitMap(thumbnail);
-                img_Produto.setImageBitmap(thumbnail);
+                imageViewCadastro.setImageBitmap(thumbnail);
             }
         }
         if (requestCode == CAPTURAR_IMAGEM) {
             if (resultCode == RESULT_OK) {
-                ;
+
 
                 Bitmap thumbnail = (BitmapFactory.decodeFile(nomeImagem));
                 thumbnail = rotationBitMap(thumbnail);
-                img_Produto.setImageBitmap(thumbnail);
+                imageViewCadastro.setImageBitmap(thumbnail);
                 mostrarMensagem("Imagem capturada!");
                 adicionarNaGaleria();
             } else {
@@ -210,62 +200,19 @@ public class TeladeUsuario extends AppCompatActivity {
     }
 
     public void limpaCampos() {
-        etNome.setText("");
-        etEmail.setText("");
-        etTel.setText("");
+        etCadastroNome.setText("");
+        etcadastroEndereco.setText("");
+        etcadastroDescricao.setText("");
     }
 
     public void deslogarClick(View view) {
         mAuth.signOut();
-        startActivity(new Intent(TeladeUsuario.this, LoginActivity.class));
+        startActivity(new Intent(Cadastro_Bar.this, LoginActivity.class));
         finish();
     }
 
     public void voltarClick(View view) {
-        startActivity(new Intent(TeladeUsuario.this, MainActivity.class));
+        startActivity(new Intent(Cadastro_Bar.this, MainActivity.class));
         finish();
     }
-
-    /*public void regitrarse(final String usuario, final String email, final String telefone) {
-        btn_Entrar.setEnabled(false);
-
-        autenticador.sig(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    FirebaseUser usuarioFirebase = autenticador.getCurrentUser();
-                    assert usuarioFirebase != null;
-                    String idUsuario = usuarioFirebase.getUid();
-
-                    referencia = FirebaseDatabase.getInstance().getReference("Usuarios").child(idUsuario);
-                    HashMap<String, String> hashMap = new HashMap<>();
-                    hashMap.put("id", idUsuario);
-                    hashMap.put("usuario", usuario);
-                    hashMap.put("email", email);
-                    hashMap.put("telefone", telefone);
-
-                    referencia.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Intent ax = new Intent(TeladeUsuario.this, MainActivity.class);
-                                ax.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(ax);
-                                Toast.makeText(getApplicationContext(), "Registrado com sucesso!", Toast.LENGTH_SHORT).show();
-                                btn_Entrar.setEnabled(true);
-                            }
-                        }
-                    });
-
-                } else {
-                    Toast.makeText(TeladeUsuario.this, "Não foi possível realizar o cadastro!", Toast.LENGTH_SHORT).show();
-                    etNome.setText("");
-                    etEmail.setText("");
-                    etTel.setText("");
-                    etNome.requestFocus();
-                    btn_Entrar.setEnabled(true);
-                }
-            }
-        });
-    }*/
 }

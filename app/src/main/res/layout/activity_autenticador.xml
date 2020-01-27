@@ -116,7 +116,7 @@
                     tools:layout_editor_absoluteX="10dp">
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/imageViewFoto"
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
