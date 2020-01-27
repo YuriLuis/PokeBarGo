@@ -32,6 +32,19 @@ import java.util.concurrent.TimeUnit;
 
 
 public class AutenticadorActivity extends AppCompatActivity {
+
+    /**
+     * Autenticador de numero de telefone
+     * <p>
+     * O autenticador faz que o numero informado seje autenticado, ao ser autenticado ele cria um UID
+     * do usuário, podemos utilizar esse UID para realizar CRUD aonde serão passados informações diretas
+     * para o usuário especificado, são verificado todas as etapas que deverão ser concluídas pelo usuário.
+     *
+     * @since 1.0
+     * @author Sandro Diego Adão
+     */
+
+
     private static final String TAG = "FirebasePhoneNumAuth";
     LinearLayout layout1, layout2, layout3;
     StepView stepView;
@@ -50,6 +63,19 @@ public class AutenticadorActivity extends AppCompatActivity {
         carregarView();
         layout1.setVisibility(View.VISIBLE);
     }
+
+    /**
+     * Método de verificação do numero informado.
+     * <p>
+     * Neste método é passado como parametro a credencial do numero do autenticador aonde é possível
+     * estar veriricando o retorno do resultado da operação pelo método onComplete, caso a task seja
+     * efetuada com sucesso ele avança para a próxima etapa, caso contrário retorna um erro, onde pode
+     * ser tratado com um try/catch.
+     *
+     * @param credential
+     * @author Sandro Diego Adão
+     * @since 1.0
+     */
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
@@ -81,6 +107,16 @@ public class AutenticadorActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Parametro de inicialização da tela
+     *<p>
+     * Método utilizado no onCreate da view aonde serão carregada as informações ao criar a view, foi
+     * separado para poder deixar o onCreate mais clean.
+     *
+     * @since 1.0
+     * @author Sandro Diego Adão
+     */
+
     public void carregarView() {
         mAuth = FirebaseAuth.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -92,6 +128,16 @@ public class AutenticadorActivity extends AppCompatActivity {
         stepView.go(0, true);
     }
 
+    /**
+     * Método de enviar código via SMS
+     * <p>
+     * Utiliza-se esse método para enviar código de SMS contendo o número que será usado para autenticar
+     * o telefone do usuário essa é a segunda etapa da criação do usuário.
+     *
+     * @param view
+     * @since 1.0
+     * @author Sandro Diego Adão
+     */
     public void enviarCodigoSMS(View view) {
         TextView tv_numCelular;
         EditText et_numCelular;
@@ -124,6 +170,18 @@ public class AutenticadorActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Método para autenticar o código enviado por SMS
+     * <p>
+     * Neste método é verificado o número enviado via SMS, é realizado uma verificação de caracteres
+     * se o campo está vazio, caso o código informado esteja correto ele finaliza a task caso contrário
+     * retorna um erro para o usuário.
+     *
+     * @param view
+     * @since 1.0
+     * @author Sandro Diego Adão
+     */
+
     public void autenticarCodigoSMS(View view) {
         PinView verifyCodeET;
 
@@ -148,6 +206,19 @@ public class AutenticadorActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Etapa de criação do perfil do usuário
+     * <p>
+     * Esta etapa consiste em criar um perfil para o usuário credenciado, aonde ele poderá alterar suas informações
+     * após concluído ele será redirecionado para a tela principal, podendo alterar essas informações a qualquer hora.
+     * O método onVerificationComplete tem como objeto verificado o estado do usuário, caso ele complete todas as etapas
+     * anteriores ele entra no nesse metodo, o método onCodeSend tem como objeto verificar o estado do envio da mensagem
+     * tendo co verificationID como atributo, verifica o usuário caso ele já seja autenticado.
+     *
+     * @param view
+     * @since 1.0
+     * @author Sandro Diego Adão
+     */
     public void criarPerfilUsuario(View view) {
         if (etapaAtual < stepView.getStepCount() - 1) {
             etapaAtual++;
@@ -201,6 +272,16 @@ public class AutenticadorActivity extends AppCompatActivity {
         };
         return mCallbacks;
     }
+
+    /**
+     * Método de retorno para a tela de login
+     * <p>
+     * Retorna o usuário para tela de login
+     *
+     * @param view
+     * @since 1.0
+     * @author Sandro Diego Adão
+     */
 
     public void voltarClick(View view) {
         startActivity(new Intent(AutenticadorActivity.this, LoginActivity.class));

@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -26,9 +27,16 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.example.pokebargo.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
+import java.util.HashMap;
 
 public class TeladeUsuario extends AppCompatActivity {
 
@@ -37,6 +45,9 @@ public class TeladeUsuario extends AppCompatActivity {
     private final int CAPTURAR_IMAGEM = 222;
     private final int PERMISSAO_REQUEST = 2;
     FirebaseAuth mAuth;
+    FirebaseAuth autenticador;
+    DatabaseReference referencia;
+    PhoneAuthCredential credential;
     private Button btn_carregarImagem, btn_carregarCamera, btn_Entrar;
     private AlertDialog alerta2;
     private EditText etNome, etEmail, etTel;
@@ -215,5 +226,46 @@ public class TeladeUsuario extends AppCompatActivity {
         finish();
     }
 
+    /*public void regitrarse(final String usuario, final String email, final String telefone) {
+        btn_Entrar.setEnabled(false);
 
+        autenticador.sig(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser usuarioFirebase = autenticador.getCurrentUser();
+                    assert usuarioFirebase != null;
+                    String idUsuario = usuarioFirebase.getUid();
+
+                    referencia = FirebaseDatabase.getInstance().getReference("Usuarios").child(idUsuario);
+                    HashMap<String, String> hashMap = new HashMap<>();
+                    hashMap.put("id", idUsuario);
+                    hashMap.put("usuario", usuario);
+                    hashMap.put("email", email);
+                    hashMap.put("telefone", telefone);
+
+                    referencia.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Intent ax = new Intent(TeladeUsuario.this, MainActivity.class);
+                                ax.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(ax);
+                                Toast.makeText(getApplicationContext(), "Registrado com sucesso!", Toast.LENGTH_SHORT).show();
+                                btn_Entrar.setEnabled(true);
+                            }
+                        }
+                    });
+
+                } else {
+                    Toast.makeText(TeladeUsuario.this, "Não foi possível realizar o cadastro!", Toast.LENGTH_SHORT).show();
+                    etNome.setText("");
+                    etEmail.setText("");
+                    etTel.setText("");
+                    etNome.requestFocus();
+                    btn_Entrar.setEnabled(true);
+                }
+            }
+        });
+    }*/
 }
