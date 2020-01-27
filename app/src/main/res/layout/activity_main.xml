@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#333333"
     tools:context=".view.MainActivity">
 
     <LinearLayout
@@ -21,6 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                app:backgroundTint="@color/browser_actions_title_color"
+                app:srcCompat="@android:drawable/ic_input_add" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_foto"
@@ -66,13 +77,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_listaBares"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="419dp"
+        android:layout_height="573dp"
         android:background="#333333"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_linha2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_linha2"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

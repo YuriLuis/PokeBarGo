@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333333"
+    tools:context=".view.Cadastro_Bar">
+
+
+    <EditText
+        android:id="@+id/etCadastroNome"
+        android:layout_width="298dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/border_corner"
+        android:ems="10"
+        android:hint="    Nome"
+        android:inputType="textPersonName"
+        android:textColor="#B2B5C2"
+        android:textColorHint="#B2B5C2"
+        app:layout_constraintBottom_toTopOf="@+id/etcadastroEndereco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etcadastroEndereco"
+        android:layout_width="298dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="75dp"
+        android:background="@drawable/border_corner"
+        android:ems="10"
+        android:hint="    Endereço"
+        android:inputType="textPersonName"
+        android:textColor="#B2B5C2"
+        android:textColorHint="#B2B5C2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etcadastroDescricao"
+        android:layout_width="298dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        android:background="@drawable/border_corner"
+        android:clickable="false"
+        android:duplicateParentState="false"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="    Descrição"
+        android:inputType="phone"
+        android:textColor="#B2B5C2"
+        android:textColorHint="#B2B5C2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etcadastroEndereco" />
+
+    <Button
+        android:id="@+id/btn_carregarCameraCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/boder_botao"
+        android:text="Camera"
+        android:textColor="#B2B5C2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCadastro" />
+
+    <Button
+        android:id="@+id/btn_carregarImagemCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/boder_botao"
+        android:text="Galeria"
+        android:textColor="#B2B5C2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCadastro" />
+
+    <Button
+        android:id="@+id/btn_Cadastrar"
+        android:layout_width="158dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="151dp"
+        android:background="@drawable/boder_botao"
+        android:text="Cadastrar"
+        android:textColor="#B2B5C2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewCadastro"
+        android:layout_width="162dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="124dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/border_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
