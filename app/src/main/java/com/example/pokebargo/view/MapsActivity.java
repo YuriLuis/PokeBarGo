@@ -1,17 +1,16 @@
 package com.example.pokebargo.view;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -28,11 +27,20 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+/**
+ * Atividade responsável por exibir o mapa. Gerencia intents para exibir as informações necessárias,
+ * como localização dos mapas e foco da câmera.
+ *
+ * @Since 0.1.0
+ * @Author André Guilherme Theilacker
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
 
     private CameraPosition mCameraPosition;
+    private Intent intent;
+    private Bundle extras;
 
     // The entry point to the Fused Location Provider.
     private FusedLocationProviderClient mFusedLocationProviderClient;
@@ -62,6 +70,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mCameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
         }
 
+        // Retrieve intents passed to the activity
+        intent = getIntent();
+        extras = intent.getExtras();
+
         // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_maps);
 
@@ -75,7 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Saves the state of the map when the activity is paused.
+     * Salva configurações do mapa para quando a atividade/aplicação for pausada.
      */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -87,12 +99,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Manipulates the map when it's available.
-     * This callback is triggered when the map is ready to be used.
+     * Método callback que é chamado quando o mapa for carregado e estiver pronto para ser manipulado.
      */
     @Override
     public void onMapReady(GoogleMap map) {
         mMap = map;
+
+        handleIntents();
 
         // Use a custom info window adapter to handle multiple lines of text in the
         // info window contents.
@@ -130,7 +143,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Gets the current location of the device, and positions the map's camera.
+     * Pega a posição do usuário e a define como foco da câmera do mapa.
      */
     private void getDeviceLocation() {
         /*
@@ -168,7 +181,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Prompts the user for permission to use the device location.
+     * Requisita a permissão do usuário para poder ler sua localização.
      */
     private void getLocationPermission() {
         /*
@@ -188,7 +201,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Handles the result of the request for location permissions.
+     * Verifica a resposta da requisição das permissões.
      */
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -208,7 +221,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Updates the map's UI settings based on whether the user has granted location permission.
+     * Atualiza a exibição do mapa de acordo com a permissão concedida pelo usuário.
      */
     private void updateLocationUI() {
         if (mMap == null) {
@@ -227,5 +240,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } catch (SecurityException e) {
             Log.e("Exception: %s", e.getMessage());
         }
+    }
+
+    /**
+     * Gerencia os intents passados para a aplicação, de modo a atualizar o mapa de acordo.
+     *
+     * @Since 0.1.1
+     */
+    private void handleIntents() {
+        if (extras != null) {
+            if (extras.containsKey("mapscameraposition")) {
+                //TODO: definir a posição da câmera do mapa de acordo com a posição passada
+            }
+        }
+    }
+
+    /**
+     * Marca os bares no mapa
+     *
+     * @Since 0.1.1
+     */
+    private void definePinPoints() {
+        //TODO: receber a lista de bares e transformar o endereço deste em latitude/longitude usando
+        // o GeoCoder da API do GoogleMaps
     }
 }
