@@ -39,6 +39,38 @@
           }
         },
         {
+          "client_id": "612234423264-1gvu1ilkcbpnjub0lcvt9c2le07ljsi5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokebargo",
+            "certificate_hash": "b40fcd973d85855cd482f92e692837e4074b678a"
+          }
+        },
+        {
+          "client_id": "612234423264-ofths1qed7rfiqdq36gcm7m9j1pq1jch.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokebargo",
+            "certificate_hash": "79559618beda60ef2a9d2fcdf3fc8ba6b58cac98"
+          }
+        },
+        {
+          "client_id": "612234423264-975hom0r864k38fhcbdolubaaqjta3is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokebargo",
+            "certificate_hash": "7d040b70bf94fc768dd74c869fd7d37893e884e4"
+          }
+        },
+        {
+          "client_id": "612234423264-m0ro1j19k9fsrgf0dsirpqf2tgg5708l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokebargo",
+            "certificate_hash": "0eb5cced0f2ba39c740388aecda8b1819af6a425"
+          }
+        },
+        {
           "client_id": "612234423264-mt4nrh62s8n2l1l1edn713bjgq9q7p5i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
